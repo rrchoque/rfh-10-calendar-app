@@ -10,6 +10,8 @@ import DatePicker, { registerLocale }  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from 'date-fns/locale/es';
 
+import { useUiStore } from '../../hooks';
+
 registerLocale('es', es)
 
 const customStyles = {
@@ -27,9 +29,7 @@ Modal.setAppElement('#root');
 
 export const CalendarModal = () => {
 
-    const onCloseModal = () => {
-        closeDateModal();
-    }
+    const { isDateModalOpen, closeDateModal } = useUiStore();
 
     const [formValues, setFormValues] = useState({
         title: '',
@@ -63,6 +63,10 @@ export const CalendarModal = () => {
         })
     }
 
+    const onCloseModal = () => {
+        closeDateModal();
+    }
+    
     const onSubmit = async( event ) => {
         event.preventDefault();
         setFormSubmitted(true)
@@ -81,7 +85,7 @@ export const CalendarModal = () => {
 
   return (
     <Modal
-        isOpen={ true }
+        isOpen={ isDateModalOpen }
         onRequestClose={ onCloseModal }
         style={ customStyles }
         className="modal"
