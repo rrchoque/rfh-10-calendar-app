@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { onAddNewEvent, onDeleteEvent, onSetActiveEvent, onUpdateEvent } from '../store';
+import Swal from 'sweetalert2';
+import { calendarApi } from '../api';
 
 
 export const useCalendarStore = () => {
   
     const dispatch = useDispatch();
     const { events, activeEvent } = useSelector( state => state.calendar );
+    const { user } = useSelector( state => state.auth );
 
     const setActiveEvent = ( calendarEvent ) => {
         dispatch( onSetActiveEvent( calendarEvent ) )
