@@ -22,9 +22,7 @@ export const calendarSlice = createSlice({
     },
     reducers: {
         onSetActiveEvent: ( state, { payload }) => {
-            console.log('Active::', payload)
             state.activeEvent = payload;
-            console.log('State::',payload)
         },
         onAddNewEvent: ( state, { payload }) => {
             state.events.push( payload );
@@ -32,7 +30,7 @@ export const calendarSlice = createSlice({
         },
         onUpdateEvent: ( state, { payload } ) => {
             state.events = state.events.map( event => {
-                if ( event._id === payload._id ) {
+                if ( event.id === payload.id ) {
                     return payload;
                 }
 
