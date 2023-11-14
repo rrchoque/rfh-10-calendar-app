@@ -47,7 +47,6 @@ export const useCalendarStore = () => {
             const events = convertEventsToDateEvents( data.eventos );
             dispatch( onLoadEvents( events ) );
 
-
         } catch (error) {
           console.log('Error cargando eventos');
           console.log(error)

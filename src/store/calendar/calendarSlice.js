@@ -12,9 +12,7 @@ import { createSlice } from '@reduxjs/toolkit';
 //       _id: '123',
 //       name: 'Reynaldo'
 //     }
-  
 //   };
-
 
 export const calendarSlice = createSlice({
     name: 'calendar',

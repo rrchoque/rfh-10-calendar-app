@@ -47,7 +47,6 @@ export const CalendarPage = () => {
     startLoadingEvents()
   }, [])
 
-
   return (
     <>
       <Navbar />
