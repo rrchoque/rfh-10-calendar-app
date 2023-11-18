@@ -20,8 +20,6 @@ describe('Pruebas en el CalendarApi', () => {
             .then((res) => res)
             .catch((res) => res);
 
-        console.log('RES:::', res);
-
         expect(res.config.headers['x-token']).toBe( token );
         
     });
